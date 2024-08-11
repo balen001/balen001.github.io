@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirect</title>
-    <script src="redirect.js" defer></script>
+    <script>
+        function redirectToOSSpecificPage() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/android/i.test(userAgent)) {
+                window.location.href = 'https://play.google.com/store/apps/details?id=com.nasswallet.customer&hl=en';
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = 'https://apps.apple.com/iq/app/nasswallet/id1511124150';
+            } else {
+                window.location.href = 'https://nass.iq/';
+            }
+        }
+        window.onload = redirectToOSSpecificPage;
+    </script>
 </head>
 <body>
-    <!-- Your content goes here -->
+    
 </body>
 </html>
