@@ -1,44 +1,18 @@
-function detectOS() {
+function redirectToOSSpecificPage() {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
     if (/android/i.test(userAgent)) {
-        return 'Android';
+        return window.location.href = 'https://play.google.com/store/apps/details?id=com.nasswallet.customer&hl=en';
     } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        return 'iOS';
+        return window.location.href = 'https://apps.apple.com/iq/app/nasswallet/id1511124150';
     } else if (/Windows NT/.test(userAgent)) {
-        return 'Windows';
+        return window.location.href = 'https://nass.iq/';
     } else if (/Macintosh/.test(userAgent)) {
-        return 'Mac';
+        return window.location.href = 'https://nass.iq/';
     } else if (/Linux/.test(userAgent)) {
-        return 'Linux';
+        return window.location.href = 'https://nass.iq/';
     } else {
-        return 'Other';
-    }
-}
-
-
-function redirectToOSSpecificPage() {
-    const os = detectOS();
-
-    switch (os) {
-        case 'Android':
-            window.location.href = 'https://play.google.com/store/apps/details?id=com.nasswallet.customer&hl=en';
-            break;
-        case 'iOS':
-            window.location.href = 'https://apps.apple.com/iq/app/nasswallet/id1511124150';
-            break;
-        case 'Windows':
-            window.location.href = 'https://nass.iq/';
-            break;
-        case 'Mac':
-            window.location.href = 'https://nass.iq/';
-            break;
-        case 'Linux':
-            window.location.href = 'https://nass.iq/';
-            break;
-        default:
-            window.location.href = 'https://nass.iq/';
-            break;
+        return window.location.href = 'https://nass.iq/';
     }
 }
 
