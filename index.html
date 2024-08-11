@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirect</title>
     <script>
-        function redirectToOSSpecificPage() {
+        
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
             if (/android/i.test(userAgent)) {
@@ -15,8 +15,7 @@
             } else {
                 window.location.href = 'https://nass.iq/';
             }
-        }
-        window.onload = redirectToOSSpecificPage;
+        
     </script>
 </head>
 <body>
